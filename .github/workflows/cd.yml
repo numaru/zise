@@ -1,0 +1,65 @@
+name: Continuous Delivery
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install the package
+      run: npm install
+
+    - name: Run the tests
+      run: npm run test:ci
+
+    - name: Package the extension
+      if: success()
+      run: npm run build:prod
+
+    - name: Get the version from the tag
+      id: tag_name
+      run: echo ::set-output name=current_version::${GITHUB_REF#refs/tags/}
+      shell: bash
+
+    - name: Get the changelog entry
+      id: changelog_reader
+      if: success()
+      uses: mindsers/changelog-reader-action@v2
+      with:
+        validation_depth: 1
+        version: ${{ steps.tag_name.outputs.current_version }}
+        path: ./CHANGELOG.md
+
+    - name: Create a release
+      id: create_release
+      if: success()
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.changelog_reader.outputs.version }}
+        release_name: Release ${{ steps.changelog_reader.outputs.version }}
+        body: ${{ steps.changelog_reader.outputs.changes }}
+        prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
+        draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+
+    - name: Publish to github pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      env:
+        working-directory: .
+      with:
+        folder: frontend/dist
