@@ -11,6 +11,7 @@
     }
 </script>
 
+<div class="wrapper">
 <table>
     <thead>
         <tr>
@@ -33,6 +34,19 @@
         {/each}
     </tbody>
 </table>
+</div>
 
 <style>
+    .wrapper {
+        overflow: scroll;
+        max-height: 40em;
+    }
+
+    table {
+        table-layout: auto;
+    }
+
+    .wrapper tr th:nth-child(n+2) {
+        width: 6em;
+    }
 </style>
