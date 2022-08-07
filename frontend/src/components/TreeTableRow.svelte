@@ -37,7 +37,7 @@
                     on:click|preventDefault|stopPropagation={onTogglerClick}
                     {style}
                 >
-                    {expanded ? '-' : '+'}
+                    {expanded ? "-" : "+"}
                 </button>
             {/if}
             <span>{node.data[column.field]}</span>
@@ -59,4 +59,7 @@
 {/if}
 
 <style>
+    td {
+        white-space: nowrap;
+    }
 </style>

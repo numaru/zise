@@ -8,9 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - No more expanded button linked with other files with the same name. 
 
+## [0.2.0] - 2022-08-07
+### Fixed
+- Accept the tabs as token seprator in the input.
+- No more expanded button linked with other files with the same name.
+
+### Added
+- Use the [water.css](https://watercss.kognise.dev/) as style. It has a dark theme!
+
 ## [0.1.0] - 2022-07-02
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/0.1.0...HEAD
-[0.1.0]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/0.1.0
+[Unreleased]: https://github.com/numaru/zise/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/numaru/zise/compare/0.1.0...0.2.0
+[0.1.0]: https://github.com/numaru/zise/releases/tag/0.1.0

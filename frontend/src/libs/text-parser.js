@@ -2,7 +2,7 @@ export function parseText(text) {
     const lines = text
         .split("\n")
         .filter((x) => x)
-        .map((line) => line.split(" ").filter((x) => x));
+        .map((line) => line.split(/\s+/).filter((x) => x));
     let found = lines.find((tokens) => tokens.length > 5);
     if (found) {
         throw `A line has too much tokens '${found}'`;

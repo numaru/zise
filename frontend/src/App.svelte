@@ -75,10 +75,11 @@
 
 <main>
   <a href="https://github.com/numaru/zise">Github</a>
-  <div>
+  <p>
     Paste in the box bellow the result of:
     <code>nm --line-numbers --print-size --portability path/to/exe.elf</code>
-  </div>
+  </p>
   <TextLoader on:file-loaded={onFileLoaded} />
+  <br>
   <TreeTable {nodes} {columns} />
 </main>
