@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Use the [water.css](https://watercss.kognise.dev/) as style. It has a dark theme!
+- No more expanded button linked with other files with the same name. 
 
 ## [0.1.0] - 2022-07-02
 ### Added

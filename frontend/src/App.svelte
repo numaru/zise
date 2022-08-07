@@ -22,6 +22,14 @@
     },
   ];
 
+  const idGenerator = (function* () {
+    let i = 0;
+    while (true) {
+      yield i.toString();
+      i++;
+    }
+  })();
+
   function onFileLoaded(event) {
     const symbols = event.detail;
     const dict = [];
@@ -31,10 +39,10 @@
 
       let children = dict;
       for (const k of key) {
-        let node = children.find((e) => e.key === k);
+        let node = children.find((e) => e.data.name === k);
         if (!node) {
           node = {
-            key: k,
+            key: idGenerator.next().value,
             data: { name: k, rom_size: 0, ram_size: 0 },
             children: [],
           };
@@ -45,7 +53,7 @@
         children = node.children;
       }
       children.push({
-        key: symbol.name,
+        key: idGenerator.next().value,
         data: { name: symbol.name, rom_size: rom_size, ram_size: ram_size },
         children: [],
       });
