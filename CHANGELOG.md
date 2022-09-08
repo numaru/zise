@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- No more expanded button linked with other files with the same name. 
+- Resolve paths with .. in it.
 
 ## [0.2.0] - 2022-08-07
 ### Fixed

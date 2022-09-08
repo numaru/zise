@@ -1,13 +1,29 @@
 export default class Path {
     constructor(string) {
-        this.string = string;
+        this._parts = string.split("/");
+        if (this._parts[0] === "") {
+            this._parts[0] = "/";
+        }
+        this._parts = this._parts.filter((x) => x !== "");
     }
 
     get parts() {
-        const parts = this.string.split("/")
-        if (parts[0] === "") {
-            parts[0] = "/";
+        return this._parts;
+    }
+
+    resolve() {
+        const newParts = [];
+        for (const part of this._parts) {
+            if (part === ".") {
+                continue;
+            }
+            if (part === "..") {
+                newParts.pop();
+                continue;
+            }
+            newParts.push(part)
         }
-        return parts.filter((x) => x !== "." && x !== "");;
+        this._parts = newParts
+        return this;
     }
 }
