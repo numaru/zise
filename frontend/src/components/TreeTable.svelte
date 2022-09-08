@@ -39,7 +39,7 @@
 <style>
     .wrapper {
         overflow: scroll;
-        max-height: 40em;
+        height: 40em;
     }
 
     table {
