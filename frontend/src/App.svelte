@@ -63,7 +63,7 @@
       let key = [];
       if (symbol.location) {
         const [path, line] = symbol.location.split(":");
-        key = new Path(path).parts;
+        key = new Path(path).resolve().parts;
       } else {
         key.push("Unknown");
       }
