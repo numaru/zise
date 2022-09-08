@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Resolve paths with .. in it.
 - Count weak symboles in the rom size.
+- Handle symbols with no size but a path.
 
 ## [0.2.0] - 2022-08-07
 ### Fixed
