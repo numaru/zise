@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.0] - 2022-09-08
+### Changed
+- Fix the size of the table to 40em.
+
 ### Fixed
-- No more expanded button linked with other files with the same name. 
+- Resolve paths with .. in it.
+- Count weak symboles in the rom size.
+- Handle symbols with no size but a path.
 
 ## [0.2.0] - 2022-08-07
 ### Fixed
@@ -20,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/numaru/zise/compare/0.2.0...HEAD
+[Unreleased]: https://github.com/numaru/zise/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/numaru/zise/compare/0.2.0...0.3.0
 [0.2.0]: https://github.com/numaru/zise/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/numaru/zise/releases/tag/0.1.0

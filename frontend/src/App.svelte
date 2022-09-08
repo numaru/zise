@@ -34,7 +34,7 @@
     const symbols = event.detail;
     const dict = [];
     function addSymbol(dict, key, symbol) {
-      const rom_size = "DdRrTt".includes(symbol.type) ? symbol.size ?? 0 : 0;
+      const rom_size = "DdRrTtWw".includes(symbol.type) ? symbol.size ?? 0 : 0;
       const ram_size = "BbcDdGgSs".includes(symbol.type) ? symbol.size ?? 0 : 0;
 
       let children = dict;
@@ -63,7 +63,7 @@
       let key = [];
       if (symbol.location) {
         const [path, line] = symbol.location.split(":");
-        key = new Path(path).parts;
+        key = new Path(path).resolve().parts;
       } else {
         key.push("Unknown");
       }
